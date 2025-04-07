@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "recallbum"
+version = "0.1.0"
+dependencies = [
+    "argparse",
+    "bs4",
+    "chardet"
+]
