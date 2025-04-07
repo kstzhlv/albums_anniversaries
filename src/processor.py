@@ -1,4 +1,4 @@
-import multiprocessing
+import asyncio
 import re
 
 from src.fetcher import fetch_page
@@ -19,7 +19,7 @@ def count_pages_with_ratings_above_threshold(username: str, threshold: int) -> i
     # AOTY has 60 albums per page
     return int(albums_higher_than_threshold / 60) + 1
 
-def process_page(args) -> str:
+async def process_page(args) -> str:
     username, page_number, threshold = args
 
     url = BASE_URL.format(username, page_number)
@@ -42,11 +42,10 @@ def process_page(args) -> str:
     
     return content
 
-def match_albums_and_ratings(username: str, threshold: int) -> str:
+async def match_albums_and_ratings(username: str, threshold: int) -> str:
     number_of_pages = count_pages_with_ratings_above_threshold(username, threshold)
 
-    with multiprocessing.Pool() as pool:
-        args = [(username, page, threshold) for page in range(1, number_of_pages + 1)]
-        results = pool.map(process_page, args)
+    args = [(username, page, threshold) for page in range(1, number_of_pages + 1)]
+    results = await asyncio.gather(process_page, args)
 
     return "".join(results)

@@ -3,7 +3,7 @@
 import argparse
 
 from src.writer import write_albums_to_txt
-from src.reminder import send_notification
+from src.reminder import remind
 
 
 def recallbum():
@@ -22,7 +22,7 @@ def recallbum():
     if args.command == "parse":
         write_albums_to_txt(args.username, args.threshold)
     elif args.command == "remind":
-        send_notification()
+        remind()
 
 if __name__ == "__main__":
     recallbum()
