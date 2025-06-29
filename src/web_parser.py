@@ -10,6 +10,8 @@ def get_rating_distribution(html_content: str) -> dict[int, int]:
     for row in rating_rows:
         label = row.select_one(".distLabel")
         count = row.select_one(".distCount")
+        print("label:", label)
+        print("count:", count)
 
         if label and count:
             # extract the rating and the count
