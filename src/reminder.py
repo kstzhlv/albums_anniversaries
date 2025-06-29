@@ -52,4 +52,5 @@ def send_notification():
         time.sleep(1)
 
 
-send_notification()
+if __name__ == "__main__":
+    send_notification()
