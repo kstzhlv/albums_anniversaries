@@ -2,16 +2,18 @@ import multiprocessing
 import re
 
 from fetcher import fetch_page
-from web_parser import get_favourite_albums, get_release_date, get_rating_distribution
-
+from web_parser import get_favourite_albums, get_rating_distribution, get_release_date
 
 USER_PAGE_URL = "https://www.albumoftheyear.org/user/{}/"
 BASE_URL = "https://www.albumoftheyear.org/user/{}/ratings/highest/{}/"
 
+
 def count_pages_with_ratings_above_threshold(username: str, threshold: int) -> int:
-    rating_distribution = get_rating_distribution(fetch_page(USER_PAGE_URL.format(username)))
+    rating_distribution = get_rating_distribution(
+        fetch_page(USER_PAGE_URL.format(username))
+    )
     print("rating_distribution:", rating_distribution)
-    
+
     albums_higher_than_threshold = 0
     for rating, count in rating_distribution.items():
         if rating >= threshold:
@@ -19,6 +21,7 @@ def count_pages_with_ratings_above_threshold(username: str, threshold: int) -> i
 
     # AOTY has 60 albums per page
     return int(albums_higher_than_threshold / 60) + 1
+
 
 def process_page(args) -> str:
     username, page_number, threshold = args
@@ -39,9 +42,10 @@ def process_page(args) -> str:
 
             print(f"got release date for {album}: {release_date}")
 
-            content += f"{artist} - {album}: {release_date} ({href})\n"
+            content += f"{artist} — {album}: {release_date}\n"
 
     return content
+
 
 def match_albums_and_ratings(username: str, threshold: int) -> str:
     number_of_pages = count_pages_with_ratings_above_threshold(username, threshold)
