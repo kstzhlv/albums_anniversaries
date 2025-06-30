@@ -1,11 +1,26 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
 name = "recallbum"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
     "argparse",
     "bs4",
-    "chardet"
+    "chardet",
 ]
+description = "This will remind you of your favourite albums' anniversaries! It will only need your AlbumOfTheYear username."
+authors = [
+    {name = "codeling", email = "you@gmail.com"},
+]
+requires-python = ">=3.13"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.scripts]
+recallbum = "recallbum.__main__:recallbum"
+
+[tool.pdm]
+distribution = true
+package-dir = {"" = "src"}

@@ -1,4 +1,4 @@
-from src.processor import match_albums_and_ratings
+from .processor import match_albums_and_ratings
 
 
 def write_albums_to_txt(username: str, threshold: int):
@@ -7,4 +7,5 @@ def write_albums_to_txt(username: str, threshold: int):
     with open(".favourite_albums.txt", "w") as file:
         file.write(content_to_write)
 
-write_albums_to_txt("codeling", 60)
+
+# write_albums_to_txt("codeling", 60)
