@@ -8,4 +8,5 @@ def write_albums_to_txt(username: str, threshold: int):
         file.write(content_to_write)
 
 
-# write_albums_to_txt("codeling", 60)
+if __name__ == "__main__":
+    write_albums_to_txt("codeling", 60)

@@ -12,7 +12,6 @@ def count_pages_with_ratings_above_threshold(username: str, threshold: int) -> i
     rating_distribution = get_rating_distribution(
         fetch_page(USER_PAGE_URL.format(username))
     )
-    print("rating_distribution:", rating_distribution)
 
     albums_higher_than_threshold = 0
     for rating, count in rating_distribution.items():
