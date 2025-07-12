@@ -6,6 +6,7 @@ def remind():
     TITLE = "Album anniversary!"
     albums_anniversaries = {}
     albums_anniversaries_in_month = {}
+    albums_anniversaries_in_year = {}
 
     today = datetime.today()
     formatted_date = today.strftime("%B %-d, %Y")
@@ -29,6 +30,11 @@ def remind():
                         year
                     ) - int(line[-5:])
 
+                elif (": 2" in line) or (": 1" in line):
+                    albums_anniversaries_in_year[line_split_by_colon[0]] = int(
+                        line[-5:]
+                    )
+
     for album, years_since_release in albums_anniversaries.items():
         if years_since_release > 1:
             message = f"{album} is turning {years_since_release} years old today!"
@@ -47,6 +53,9 @@ def remind():
             message = (
                 f"{album} was released in this month {years_since_release} a year ago!"
             )
+
+    for album, year_of_release in albums_anniversaries_in_year.items():
+        message = f"{album} was released somewhere in {year_of_release}!"
 
         print(TITLE, message)
         time.sleep(1)

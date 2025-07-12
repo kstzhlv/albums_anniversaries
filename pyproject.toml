@@ -19,7 +19,7 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [project.scripts]
-recallbum = "recallbum.__main__:recallbum"
+recallbum = "recallbum.recallbum:recallbum"
 
 [tool.pdm]
 distribution = true
