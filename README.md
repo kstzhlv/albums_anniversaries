@@ -12,5 +12,5 @@ pdm install
 ```
 cd src
 pdm run recallbum parse codeling 60
-pdm run remind
+pdm run recallbum remind
 ```
