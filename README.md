@@ -11,6 +11,8 @@ pdm install
 # run
 ```
 cd src
+pdm run recallbum parse [your albumoftheyear.org username] [threshold for the album rating]
+for example:
 pdm run recallbum parse codeling 60
 pdm run recallbum remind
 ```
