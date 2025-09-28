@@ -9,6 +9,7 @@ dependencies = [
     "argparse",
     "bs4",
     "chardet",
+    "dotenv>=0.9.9",
 ]
 description = "This will remind you of your favourite albums' anniversaries! It will only need your AlbumOfTheYear username."
 authors = [

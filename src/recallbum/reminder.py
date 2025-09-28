@@ -1,5 +1,9 @@
+# standard
+import os
 import time
 from datetime import datetime
+
+from dotenv import load_dotenv
 
 
 def remind():
@@ -59,3 +63,6 @@ def remind():
 
         print(TITLE, message)
         time.sleep(1)
+
+    load_dotenv()
+    print("last parsing: ", os.getenv("LAST_AOTY_PARSE"))
