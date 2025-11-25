@@ -22,7 +22,7 @@ def remind():
 
     with open(".favourite_albums.txt", "r") as file:
         for line in file:
-            line_split_by_colon = line.split(": ")
+            line_split_by_colon = line.split("::: ")
             if f"{date}, " in line:
                 albums_anniversaries[line_split_by_colon[0]] = int(year) - int(
                     line.split(", ")[-1]
@@ -41,9 +41,9 @@ def remind():
 
     for album, years_since_release in albums_anniversaries.items():
         if years_since_release > 1:
-            message = f"{album} is turning {years_since_release} years old today!"
+            message = f"{album} is {years_since_release} years old today!"
         else:
-            message = f"{album} is turning {years_since_release} year old today!"
+            message = f"{album} is {years_since_release} year old today!"
 
         print(TITLE, message)
         time.sleep(1)
@@ -57,6 +57,8 @@ def remind():
             message = (
                 f"{album} was released in this month {years_since_release} a year ago!"
             )
+
+        print(TITLE, message)
 
     for album, year_of_release in albums_anniversaries_in_year.items():
         message = f"{album} was released somewhere in {year_of_release}!"

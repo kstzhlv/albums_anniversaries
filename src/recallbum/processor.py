@@ -41,7 +41,7 @@ def process_page(args) -> str:
 
             print(f"got release date for {album}: {release_date}")
 
-            content += f"{artist} - {album}: {release_date}\n"
+            content += f"{artist} - {album}::: {release_date}\n"
 
     return content
 
