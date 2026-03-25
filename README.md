@@ -1,6 +1,6 @@
 # Recallbum
 
-Recallbum это небольшой CLI-инструмент на Python, который превращает профиль пользователя на [Album of the Year](https://www.albumoftheyear.org/) в напоминания о юбилеях любимых альбомов.
+Recallbum - это небольшой CLI-инструмент на Python, который превращает профиль пользователя на [Album of the Year](https://www.albumoftheyear.org/) в напоминания о юбилеях любимых альбомов.
 
 Проект парсит самые высоко оценённые релизы выбранного пользователя, получает дату релиза для каждого альбома, сохраняет результат локально и затем сообщает, у каких альбомов годовщина сегодня, в этом месяце или известен только год выпуска.
 
@@ -8,7 +8,7 @@ Recallbum это небольшой CLI-инструмент на Python, кот
 
 Я сделал его как маленький automation-проект под личный сценарий: не держать вручную список любимых альбомов и не забывать про их юбилеи.
 
-Для портфолио этот репозиторий показывает:
+Этот репозиторий показывает:
 
 - проектирование простого CLI с подкомандами
 - парсинг HTML-страниц стороннего сайта
@@ -92,9 +92,11 @@ pdm run recallbum remind
 
 ```text
 March 25, 2026
-Album anniversary! Radiohead - OK Computer is 29 years old today!
-Album anniversary! Daft Punk - Discovery was released in this month 25 years ago!
-last parsing: March 24, 2026
+Album anniversary! Linkin Park - Meteora is 23 years old today!
+Album anniversary! Iron Maiden - Rock in Rio is 24 years old today!
+Album anniversary! Kraftwerk - Trans Europa Express was released in this month 49 years ago!
+Album anniversary! Madvillain - Madvillainy Instrumentals was released somewhere in 2004!
+last parsing:  March 10, 2026
 ```
 
 ## Ограничения
